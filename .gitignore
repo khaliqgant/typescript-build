@@ -1,0 +1,6 @@
+.DS_Store
+/.htaccess
+/node_modules/
+npm-debug.log
+*.js
+*.js.map
