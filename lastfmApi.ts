@@ -6,7 +6,11 @@ export default function user(userId: string): string {
     foo: 'bay',
   };
 
-  const fool = { bar: 'This is a bar.', baz: { qux: 'This is a qux' }, difficult: 'to read',};
+  const fool = {
+    bar: 'This is a bar.',
+    baz: { qux: 'This is a qux' },
+    difficult: 'to read',
+  };
 
   return am;
 
