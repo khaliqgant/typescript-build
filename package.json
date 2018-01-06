@@ -19,11 +19,14 @@
     "": ""
   },
   "scripts": {
-    "fix": "./node_modules/.bin/eslint --fix --ext .ts .; exit 0",
+    "fix:tslint": "./node_modules/.bin/tslint --project ./tslint.json --fix --force",
+    "fix:prettier-eslint": "./node_modules/.bin/prettier-eslint **.ts --write",
+    "fix": "./node_modules/.bin/run-p fix:tslint fix:prettier-eslint",
     "fix:watch": "./node_modules/.bin/esw --fix --ext .ts . --watch",
     "build": "npm run fix && ./node_modules/.bin/tsc",
     "build:watch": "./node_modules/.bin/tsc -w",
-    "watch": "./node_modules/.bin/run-p fix:watch build:watch"
+    "watch": "./node_modules/.bin/run-p fix:watch build:watch",
+    "precommit": "npm run fix"
   },
   "dependencies": {
     "typescript": "latest"
@@ -36,9 +39,12 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
     "eslint-watch": "^3.1.3",
+    "husky": "^0.14.3",
     "mocha": "*",
     "npm-run-all": "^4.1.2",
+    "prettier-eslint-cli": "^4.7.0",
     "should": "latest",
+    "tslint": "^5.8.0",
     "typescript-eslint-parser": "^11.0.0"
   },
   "keywords": [
