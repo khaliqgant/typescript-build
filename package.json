@@ -1,8 +1,6 @@
 {
-  "name": "ts-build",
-  "description": "",
-  "version": "",
-  "homepage": "",
+  "name": "typescript-build",
+  "description": "Base setup for a typescript project",
   "author": {
     "name": "Khaliq Gant",
     "email": "khaliqgant@gmail.com",
@@ -10,13 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/khaliqgant/"
-  },
-  "engines": {
-    "node": ""
-  },
-  "bin": {
-    "": ""
+    "url": "https://github.com/khaliqgant/typescript-build"
   },
   "scripts": {
     "fix:tslint": "./node_modules/.bin/tslint --project ./tslint.json --fix --force",
@@ -25,11 +17,11 @@
     "fix:watch": "./node_modules/.bin/esw --fix --ext .ts . --watch",
     "build": "npm run fix && ./node_modules/.bin/tsc",
     "build:watch": "./node_modules/.bin/tsc -w",
-    "watch": "./node_modules/.bin/run-p fix:watch build:watch",
+    "clean": "./node_modules/.bin/rimraf **.js **.js.map",
+    "watch": "npm run clean && ./node_modules/.bin/run-p fix:watch build:watch",
     "precommit": "npm run fix"
   },
   "dependencies": {
-    "typescript": "latest"
   },
   "devDependencies": {
     "eslint": "^4.14.0",
@@ -43,11 +35,14 @@
     "mocha": "*",
     "npm-run-all": "^4.1.2",
     "prettier-eslint-cli": "^4.7.0",
+    "rimraf": "^2.6.2",
     "should": "latest",
     "tslint": "^5.8.0",
+    "typescript": "latest",
     "typescript-eslint-parser": "^11.0.0"
   },
   "keywords": [
-    ""
+    "formatting",
+    "typescript"
   ]
 }
